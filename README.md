@@ -1,2 +1,2 @@
 # vue-lessons
-taught you how to learn Vue
+vue实战小项目，包教不包会。
