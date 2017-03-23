@@ -28,30 +28,32 @@
     <div class="background">
       <img :src="seller.avatar" alt="" width="100%" height="100%">
     </div>
-    <div class="detail" v-show="detailShow">
-      <div class="detail-wrapper clearfix">
-        <div class="detail-main">
-          <h1 class="name">{{seller.name}}</h1>
-          <div class="star-wrapper">
-              <star :size="48" :score="seller.score"></star>
-          </div>
-          <vtitle :title="title1"></vtitle>
-          <ul v-if="seller.supports" class="supports">
-            <li class="support-item" v-for="item in seller.supports" :key="item.type">
-              <span class="icon" :class="classMap[item.type]"></span>
-              <span class="text">{{item.description}}</span>
-            </li>
-          </ul>
-          <vtitle :title="title2"></vtitle>
-          <div class="bulletin">
-            <p class="content">{{seller.bulletin}}</p>
+    <transition name="fade">
+      <div class="detail" v-show="detailShow">
+        <div class="detail-wrapper clearfix">
+          <div class="detail-main">
+            <h1 class="name">{{seller.name}}</h1>
+            <div class="star-wrapper">
+                <star :size="48" :score="seller.score"></star>
+            </div>
+            <vtitle :title="title1"></vtitle>
+            <ul v-if="seller.supports" class="supports">
+              <li class="support-item" v-for="item in seller.supports" :key="item.type">
+                <span class="icon" :class="classMap[item.type]"></span>
+                <span class="text">{{item.description}}</span>
+              </li>
+            </ul>
+            <vtitle :title="title2"></vtitle>
+            <div class="bulletin">
+              <p class="content">{{seller.bulletin}}</p>
+            </div>
           </div>
         </div>
+        <div class="detail-close">
+          <i class="icon-close" @click="hideDetail"></i>
+        </div>
       </div>
-      <div class="detail-close">
-        <i class="icon-close" @click="hideDetail"></i>
-      </div>
-    </div>
+    </transition>
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -212,6 +214,11 @@
       height: 100%
       overflow: auto
       background: rgba(7,17,27,0.8)
+      backdrop-filter: blur(10px)
+      &.fade-enter-active, &.fade-leave-active
+        transition: opacity .5s
+      &.fade-enter, &.fade-leave-active
+        opacity: 0
       .detail-wrapper
         width: 100%
         min-height: 100%
@@ -257,6 +264,13 @@
               .text
                 line-height: 16px
                 font-size: 12px
+          .bulletin
+            width: 80%
+            margin: 0 auto
+            .content
+              padding: 0 12px
+              line-height: 24px
+              font-size: 12px
       .detail-close
         position: relative
         width: 32px
