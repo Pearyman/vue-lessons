@@ -35,6 +35,17 @@
           <div class="star-wrapper">
               <star :size="48" :score="seller.score"></star>
           </div>
+          <vtitle :title="title1"></vtitle>
+          <ul v-if="seller.supports" class="supports">
+            <li class="support-item" v-for="item in seller.supports" :key="item.type">
+              <span class="icon" :class="classMap[item.type]"></span>
+              <span class="text">{{item.description}}</span>
+            </li>
+          </ul>
+          <vtitle :title="title2"></vtitle>
+          <div class="bulletin">
+            <p class="content">{{seller.bulletin}}</p>
+          </div>
         </div>
       </div>
       <div class="detail-close">
@@ -46,6 +57,7 @@
 <script type="text/ecmascript-6">
 
   import star from 'components/star/star'
+  import vtitle from 'components/title/title'
   export default {
     props: {
       seller: {
@@ -54,14 +66,17 @@
     },
     data() {
       return {
-        detailShow: false
+        detailShow: false,
+        title1: '优惠信息',
+        title2: '商家公告'
       }
     },
     created() {
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
     },
     components: {
-      star
+      star,
+      vtitle
     },
     methods: {
       showDetail() {
@@ -212,6 +227,36 @@
             margin-top: 18px
             padding: 2px 0
             text-align: center
+          .supports
+            width: 80%
+            margin: 0 auto
+            .support-item
+              padding: 0 12px
+              margin-bottom: 12px
+              font-size: 0
+              &:last-child
+                margin-bottom: 0
+              .icon
+                display: inline-block
+                width: 16px
+                height: 16px
+                vertical-align: top
+                margin-right: 6px
+                background-size: 16px 16px
+                background-repeat: no-repeat
+                &.decrease
+                  bg-image('decrease_2')
+                &.discount
+                  bg-image('discount_2')
+                &.guarantee
+                  bg-image('guarantee_2')
+                &.invoice
+                  bg-image('invoice_2')
+                &.special
+                  bg-image('special_2')
+              .text
+                line-height: 16px
+                font-size: 12px
       .detail-close
         position: relative
         width: 32px
