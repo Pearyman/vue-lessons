@@ -86,9 +86,10 @@ export default {
 					line-height: 24px
 					color: rgba(255,255,255,0.4)
 					font-size: 10px
-
 			.content-right
 				flex: 0 0 105px
 				width: 105px
+				text-align: center
+				background: #2b333b
 
 </style>
