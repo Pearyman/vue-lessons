@@ -37,18 +37,20 @@
          </li>
        </ul>
      </div>
+     <shopCart :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice"></shopCart>
    </div>
 </template>
 
 <script>
 import BScroll from 'better-scroll'
+import shopCart from 'components/shopcart/shopcart'
 const ERR_OK = 0
 export default {
-  // props: {
-  //   seller: {
-  //     type: Object
-  //   }
-  // },
+  props: {
+    seller: {
+      type: Object
+    }
+  },
   data() {
     return {
       goods: [],
@@ -110,6 +112,9 @@ export default {
       }
       this.foodsScroll.scrollTo(0, -this.listHeight[index], 300)
     }
+  },
+  components: {
+    shopCart
   }
 }
 </script>
