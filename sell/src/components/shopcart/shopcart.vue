@@ -3,6 +3,10 @@
 		<div class="content">
 			<div class="content-left">
 				<div class="logo-wrapper">
+          <div class="badge">{{totalCount}}</div>
+					<div class="fuck">
+             12312
+					</div>
 					<div class="logo">
 						<i class="icon-shopping_cart"></i>
 					</div>
@@ -87,6 +91,20 @@ export default {
 					vertical-align: top
 					border-radius: 50%
 					background: #141d27
+          .badge
+						position: absolute
+						top: 0
+						right: 0
+						background: rgb(240,20,20)
+						color: #fff
+						width: 24px
+						height: 16px
+						line-height: 16px
+						font-size: 9px
+						box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4)
+						font-weight: 700
+						border-radius: 16px
+						text-align: center
 					.logo
 						width: 100%
 						height: 100%
@@ -128,5 +146,4 @@ export default {
 					color: rgba(255,255,255,0.4)
 					font-weight: 700
 					background: #2b333b
-
 </style>
