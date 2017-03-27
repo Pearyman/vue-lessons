@@ -7,11 +7,13 @@
 						<i class="icon-shopping_cart"></i>
 					</div>
 				</div>
-				<div class="price">￥10</div>
+				<div class="price">￥{{totalPrice}}</div>
 				<div class="desc">另需配送费￥{{deliveryPrice}}元</div>
 			</div>
 			<div class="content-right">
-
+				<div class="pay">
+					￥{{minPrice}}元起送
+				</div>
 			</div>
 		</div>
 	</div>
@@ -20,6 +22,12 @@
 <script>
 export default {
   props: {
+    selectFoods: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
     deliveryPrice: {
       type: Number,
       default: 0
@@ -27,6 +35,27 @@ export default {
     minPrice: {
       type: Number,
       default: 0
+    }
+  },
+  data() {
+    return {
+      totalPrice: 0
+    }
+  },
+  computed: {
+    totalPrice() {
+      let total = 0
+      this.selectFoods.each((food) => {
+        total += food.price * food.count
+      })
+      return total
+    },
+		totalCount() {
+			let count = 0
+			this.selectFoods.forEach((food) => {
+				count += food.count
+			})
+			return count
     }
   }
 }
@@ -91,5 +120,13 @@ export default {
 				width: 105px
 				text-align: center
 				background: #2b333b
+				.pay
+					height: 48px
+					line-height: 48px
+					text-align: center
+					font-size: 12px
+					color: rgba(255,255,255,0.4)
+					font-weight: 700
+					background: #2b333b
 
 </style>
