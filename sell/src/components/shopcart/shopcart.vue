@@ -5,7 +5,7 @@
 				<div class="logo-wrapper">
           <div class="badge">{{totalCount}}</div>
 					<div class="fuck">
-             1231
+             1231四渡赤水
 					</div>
 					<div class="logo">
 						<i class="icon-shopping_cart"></i>
