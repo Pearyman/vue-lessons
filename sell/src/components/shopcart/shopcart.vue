@@ -5,7 +5,7 @@
 				<div class="logo-wrapper">
           <div class="badge">{{totalCount}}</div>
 					<div class="fuck">
-             12312
+             1231
 					</div>
 					<div class="logo">
 						<i class="icon-shopping_cart"></i>
