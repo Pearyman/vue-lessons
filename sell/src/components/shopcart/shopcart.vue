@@ -3,7 +3,7 @@
 		<div class="content">
 			<div class="content-left">
 				<div class="logo-wrapper">
-          <div class="badge">{{totalCount}}</div>
+          <div class="badge" v-show="totalCount>0">{{totalCount}}</div>
 					<div class="fuck">
              1231四渡赤水
 					</div>
@@ -29,7 +29,11 @@ export default {
     selectFoods: {
       type: Array,
       default() {
-        return []
+        return [
+					{
+						totalCount: 10
+					}
+				]
       }
     },
     deliveryPrice: {
