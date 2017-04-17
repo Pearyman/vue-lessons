@@ -31,7 +31,7 @@ export default {
       default() {
         return [
 					{
-						totalCount: 10
+						// price: 10
 					}
 				]
       }
@@ -53,7 +53,7 @@ export default {
   computed: {
     totalPrice() {
       let total = 0
-      this.selectFoods.each((food) => {
+      this.selectFoods.forEach((food) => {
         total += food.price * food.count
       })
       return total
