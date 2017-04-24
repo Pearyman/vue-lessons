@@ -3,7 +3,7 @@
 		<div class="content">
 			<div class="content-left">
 				<div class="logo-wrapper">
-          <div class="badge" v-show="totalCount>0">{{totalCount}}</div>
+          <div class="badge" v-show="totalCount">{{totalCount}}</div>
 					<div class="fuck">
              1231四渡赤水
 					</div>
